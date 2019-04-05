@@ -1,1 +1,2 @@
-做的练习居然推不成功？？
+learn python with vscode
+
