@@ -1,21 +1,12 @@
-﻿# -*- coding: utf-8 -*-
-# math.py
-# @author microlee
-# @description 湘师实验小学二年级数学口算出题
-# @created Wed Nov 14 2018 08:35:13 GMT+0800 (中国标准时间)
-# @last-modified Mon Apr 08 2019 12:01:09 GMT+0800 (中国标准时间)
+# 湘师实验小学二年级数学口算出题，100以内加减法及6以内简单乘法，打印math.txt后练习
 
 from random import randint
 
 sym = [' + ', ' - ']
 
 fobj = open('math.txt', 'w')
-fobj.writelines(
-    r'                     用时______分钟           对______题（共120题）           家长签名：'
-    + '\r\n')
-fobj.writelines(
-    r'                                   湘师实验小学二年级一班学生数学口算训练专用           ' +
-    '\r\n')
+fobj.writelines(r'用时______分钟           对______题（共120题）           家长签名：' +
+                '\r\n')
 
 
 def pmbase(pmin, pmax, mmin, mmax, multimin, multimax):
@@ -42,7 +33,7 @@ def pmbase(pmin, pmax, mmin, mmax, multimin, multimax):
     multi = str(multi1).rjust(2) + ' x ' + str(multi2).rjust(2) + ' ='
 
     baseline = [plus, minus, plus, multi]
-    line = (28 * ' ').join(baseline)
+    line = (12 * ' ').join(baseline)
     print(line)
     fobj.writelines(line + '\r\n')
 
@@ -106,7 +97,7 @@ def oneline(pmin, pmax, mmin, mmax, multimin, multimax):
         third).rjust(2) + ' ='
 
     lineitem = [plus, minus, pm, mix]
-    line = (28 * ' ').join(lineitem)
+    line = (8 * ' ').join(lineitem)
     print(line)
     fobj.writelines(line + '\r\n')
 
