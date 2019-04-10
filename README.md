@@ -1,2 +1,1 @@
-learn python with vscode
-
+用vscode学python
