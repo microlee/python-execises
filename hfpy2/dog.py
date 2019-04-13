@@ -75,18 +75,61 @@ class FrisbeeDog(Dog):
         return str
 
 
-def test_code():
-    dude = FrisbeeDog('Dude', 5, 20)
-    blue_frisbee = Frisbee('blue')
+class Hotel:
+    def __init__(self, name):
+        self.name = name
+        self.kennel = {}
 
-    print(dude)
-    dude.bark()
-    dude.catch(blue_frisbee)
-    dude.bark()
-    print(dude)
-    frisbee = dude.give()
-    print(frisbee)
-    print(dude)
+    def check_in(self, dog):
+        if isinstance(dog, Dog):
+            self.kennel[dog.name] = dog
+            print(dog.name, 'is checked into', self.name)
+        else:
+            print('Sorry only Dogs are allowed in', self.name)
+
+    def check_out(self, name):
+        if name in self.kennel:
+            dog = self.kennel[name]
+            print(dog.name, 'is checked out of', self.name)
+            del self.kennel[dog.name]
+            return dog
+        else:
+            print('Sorry,', name, 'is not boarding at', self.name)
+            return None
+
+
+class Cat():
+    def __init__(self, name):
+        self.name = name
+
+    def meow(self):
+        print(self.name, 'Says, "Meow"')
+
+
+def test_code():
+    codie = Dog('Codie', 12, 38)
+    jackson = Dog('Jackson', 9, 12)
+    sparky = Dog('Sparky', 2, 14)
+    rody = ServiceDog('Rody', 8, 38, 'Joseph')
+    dude = FrisbeeDog('Dude', 5, 20)
+    kitty = Cat('Kitty')
+
+    hotel = Hotel('Doggie Hotel')
+    hotel.check_in(codie)
+    hotel.check_in(jackson)
+    hotel.check_in(rody)
+    hotel.check_in(dude)
+    hotel.check_in(kitty)
+
+    dog = hotel.check_out(codie.name)
+    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+    dog = hotel.check_out(jackson.name)
+    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+    dog = hotel.check_out(rody.name)
+    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+    dog = hotel.check_out(dude.name)
+    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+    dog = hotel.check_out(sparky.name)
 
 
 test_code()
