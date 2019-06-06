@@ -7,7 +7,6 @@ option.add_argument('headless')  # 静默模式
 driver = webdriver.Chrome(options=option)
 driver.get("https://www.learning.gov.cn/index.php")
 print(driver.title)
-
 sleep(2)
 
 driver.close()
